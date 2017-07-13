@@ -51,7 +51,7 @@ TestResults/
 # Logs and databases #
 ######################
 *.log
-App_Data/*
+LFGo/App_Data/*
 *.sqlite
 # OS generated files #
 ######################
