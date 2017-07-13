@@ -1,0 +1,19 @@
+﻿@model LFGo.Models.DetailsViewModel
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <div>
+        <hr />
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="~/Assets/Images/valor-logo.png" alt="Alternate Text" width="200px" height="200px"/>
+            </div>
+            <div class="col-sm-8">
+                <h4>@Model.UserName</h4>
+            </div>
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Edit user details", "Index", "Manage")
+    </p>
+}

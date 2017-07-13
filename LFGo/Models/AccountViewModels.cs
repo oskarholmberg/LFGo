@@ -49,9 +49,8 @@ namespace LFGo.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Email/Username")]
+        public string EmailOrUserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -60,6 +59,16 @@ namespace LFGo.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+    }
+
+    public class DetailsViewModel
+    {
+        [Required]
+        [Display(Name = "Username")]
+        public string UserName { get; set; }
+
+        [Required]
+        public string TeamURL { get; set; }
     }
 
     public class RegisterViewModel
@@ -79,6 +88,10 @@ namespace LFGo.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Username")]
+        public string UserName { get; set; }
     }
 
     public class ResetPasswordViewModel

@@ -11,7 +11,7 @@ using LFGo.Models;
 namespace LFGo.Controllers
 {
     [Authorize]
-    public class ManageController : Controller
+    public class ManageController : ApplicationController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;

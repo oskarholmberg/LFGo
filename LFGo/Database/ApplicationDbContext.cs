@@ -14,5 +14,10 @@ namespace LFGo.Database
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<LFGo.Models.Team> Teams { get; set; }
+
+        public System.Data.Entity.DbSet<LFGo.Models.Group> Groups { get; set; }
+
     }
 }

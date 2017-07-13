@@ -1,22 +1,22 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using LFGo.Database;
+using LFGo.Database.Repositories;
+using LFGo.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using LFGo.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace LFGo.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : ApplicationController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private UserRepository userRepository = new UserRepository(new ApplicationDbContext());
 
         public AccountController()
         {
@@ -72,10 +72,15 @@ namespace LFGo.Controllers
             {
                 return View(model);
             }
-
+            var username = model.EmailOrUserName;
+            var user = await UserManager.FindByEmailAsync(model.EmailOrUserName);
+            if(user != null)
+            {
+                username = user.UserName;
+            } 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(username, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -89,6 +94,21 @@ namespace LFGo.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+        }
+
+        public async Task<ActionResult> Details()
+        {
+
+            // Fetch the userprofile
+            ApplicationUser user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            // Construct the viewmodel
+            DetailsViewModel model = new DetailsViewModel
+            {
+                UserName = user.UserName,
+                TeamURL = userRepository.GetTeamURL(user)
+            };
+
+            return View(model);
         }
 
         //
@@ -151,7 +171,7 @@ namespace LFGo.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -7,6 +7,15 @@ namespace LFGo.Models
 {
     public class IndexViewModel
     {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+        [Required]
+        [Display(Name = "Username")]
+        public string UserName { get; set; }
+        [Required]
+        public int TeamId { get; set; }
         public bool HasPassword { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
         public string PhoneNumber { get; set; }

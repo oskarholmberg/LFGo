@@ -94,7 +94,6 @@ c:\users\oho\documents\visual studio 2017\Projects\LFGo\LFGo\bin\Microsoft.AI.We
 c:\users\oho\documents\visual studio 2017\Projects\LFGo\LFGo\obj\Debug\LFGo.csprojResolveAssemblyReference.cache
 c:\users\oho\documents\visual studio 2017\Projects\LFGo\LFGo\obj\Debug\LFGo.dll
 c:\users\oho\documents\visual studio 2017\Projects\LFGo\LFGo\obj\Debug\LFGo.pdb
-C:\Users\oho\Documents\LFGo\LFGo\obj\Debug\LFGo.csprojResolveAssemblyReference.cache
 C:\Users\oho\Documents\LFGo\LFGo\obj\Debug\LFGo.dll
 C:\Users\oho\Documents\LFGo\LFGo\obj\Debug\LFGo.pdb
 C:\Users\oho\Documents\LFGo\LFGo\bin\ApplicationInsights.config
@@ -190,3 +189,8 @@ C:\Users\oho\Documents\LFGo\LFGo\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\oho\Documents\LFGo\LFGo\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\oho\Documents\LFGo\LFGo\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\oho\Documents\LFGo\LFGo\bin\Microsoft.AI.Web.xml
+C:\Users\oho\Documents\LFGo\LFGo\obj\Debug\LFGo.Migrations.AddTeams.resources
+C:\Users\oho\Documents\LFGo\LFGo\obj\Debug\LFGo.csproj.GenerateResource.Cache
+C:\Users\oho\Documents\LFGo\LFGo\obj\Debug\LFGo.Migrations.AddGroup.resources
+C:\Users\oho\Documents\LFGo\LFGo\obj\Debug\LFGo.Migrations.UpdateModels.resources
+C:\Users\oho\Documents\LFGo\LFGo\obj\Debug\LFGo.csprojResolveAssemblyReference.cache
